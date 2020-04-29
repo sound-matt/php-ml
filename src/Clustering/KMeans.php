@@ -42,7 +42,7 @@ class KMeans implements Clusterer
 
         $clusters = [];
         foreach ($space->cluster($this->clustersNumber, $this->initialization) as $cluster) {
-            $clusters[] = $cluster->getPoints();
+            $clusters[] = $cluster->toArray()['points'];
         }
 
         return $clusters;

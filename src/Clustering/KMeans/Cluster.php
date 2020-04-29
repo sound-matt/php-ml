@@ -32,9 +32,9 @@ class Cluster extends Point implements IteratorAggregate
         $points = [];
         foreach ($this->points as $point) {
             if ($point->label === null) {
-                $points[] = $point->toArray();
+                $points[] = $point;
             } else {
-                $points[$point->label] = $point->toArray();
+                $points[$point->label] = $point;
             }
         }
 
@@ -45,7 +45,9 @@ class Cluster extends Point implements IteratorAggregate
     {
         return [
             'centroid' => parent::toArray(),
-            'points' => $this->getPoints(),
+            'points' => array_map(function ($point) {
+                return $point->toArray();
+            }, $this->getPoints()),
         ];
     }
 

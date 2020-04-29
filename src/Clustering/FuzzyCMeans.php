@@ -112,7 +112,7 @@ class FuzzyCMeans implements Clusterer
         // Return grouped samples
         $grouped = [];
         foreach ($this->clusters as $cluster) {
-            $grouped[] = $cluster->getPoints();
+            $grouped[] = $cluster->toArray()['points'];
         }
 
         return $grouped;
