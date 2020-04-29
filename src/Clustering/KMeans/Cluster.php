@@ -41,6 +41,11 @@ class Cluster extends Point implements IteratorAggregate
         return $points;
     }
 
+    public function getSpace(): Space
+    {
+        return $this->space;
+    }
+
     public function toArray(): array
     {
         return [

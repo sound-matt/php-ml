@@ -43,6 +43,14 @@ class ClusterTest extends TestCase
         self::assertSame([$point], $cluster->getPoints());
     }
 
+    public function testGetSpace(): void
+    {
+        $space = new Space(2);
+        $cluster = new Cluster($space, [1, 2]);
+
+        self::assertSame($space, $cluster->getSpace());
+    }
+
     public function testDetach(): void
     {
         $cluster = new Cluster(new Space(2), []);
